@@ -78,7 +78,8 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CEABB2401942AD9700FCB13C"
@@ -87,15 +88,6 @@
             ReferencedContainer = "container:Example/SCLAlertViewExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "70264EF61B0F588700B32B18"
-            BuildableName = "SCLAlertView.framework"
-            BlueprintName = "SCLAlertView"
-            ReferencedContainer = "container:SCLAlertView.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
