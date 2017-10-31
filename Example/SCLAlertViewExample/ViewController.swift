@@ -116,32 +116,32 @@ class ViewController: UIViewController {
         )
 
 
-        let alertView = SCLAlertView(appearance: SCLAppearance.review)
+//        let alertView = SCLAlertView(appearance: SCLAppearance.review)
+//
+//        let subview = UIView(frame: CGRect(x: 0, y: 0, width: 216, height: 110))
+//
+//        let ratingView = StarView(true)
+//        ratingView.frame = CGRect(x: 0, y: 10, width: 216, height: 30)
+//        ratingView.isActive = true
+//        subview.addSubview(ratingView)
+//
+//        let textView = SZTextView()
+//        textView.frame = CGRect(x: 0, y: 50, width: 216, height: 60)
+//        textView.layer.borderWidth = 1
+//        textView.layer.borderColor = Colors.textViewBorder.cgColor
+//        textView.layer.cornerRadius = 5
+//
+//        textView.backgroundColor = Colors.textViewBackground
+//        textView.placeholder = Strings.popup_rating_hint.localized
+//        textView.textAlignment = .center
+//        subview.addSubview(textView)
+//
+//        alertView.customSubview = subview
+//        alertView.addButton(Strings.popup_rating_button.localized) {
+//            print("test")
+//        }
 
-        let subview = UIView(frame: CGRect(x: 0, y: 0, width: 216, height: 110))
-
-        let ratingView = StarView(true)
-        ratingView.frame = CGRect(x: 0, y: 10, width: 216, height: 30)
-        ratingView.isActive = true
-        subview.addSubview(ratingView)
-
-        let textView = SZTextView()
-        textView.frame = CGRect(x: 0, y: 50, width: 216, height: 60)
-        textView.layer.borderWidth = 1
-        textView.layer.borderColor = Colors.textViewBorder.cgColor
-        textView.layer.cornerRadius = 5
-
-        textView.backgroundColor = Colors.textViewBackground
-        textView.placeholder = Strings.popup_rating_hint.localized
-        textView.textAlignment = .center
-        subview.addSubview(textView)
-
-        alertView.customSubview = subview
-        alertView.addButton(Strings.popup_rating_button.localized) {
-            print("test")
-        }
-
-        self.alertViewResponder = alertView.showAlert(title: Strings.popup_rating_header.localized, subTitle: Strings.popup_rating_subheader.localized)
+//        self.alertViewResponder = alertView.showAlert(title: Strings.popup_rating_header.localized, subTitle: Strings.popup_rating_subheader.localized)
 
         // Initialize SCLAlertView using custom Appearance
 //        let alert = SCLAlertView(appearance: appearance)

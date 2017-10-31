@@ -85,7 +85,6 @@ open class SCLAlertView: UIViewController, UIGestureRecognizerDelegate, UITextVi
         // Content View
         self.contentView.backgroundColor = .white
         self.contentView.layer.cornerRadius = 3.0
-        self.contentView.layer.borderWidth = 0.5
         self.view.addSubview(self.contentView)
 
         // Title
