@@ -115,52 +115,80 @@ class ViewController: UIViewController {
                 style: .info(nil)
         )
 
+
+        let alertView = SCLAlertView(appearance: SCLAppearance.review)
+
+        let subview = UIView(frame: CGRect(x: 0, y: 0, width: 216, height: 110))
+
+        let ratingView = StarView(true)
+        ratingView.frame = CGRect(x: 0, y: 10, width: 216, height: 30)
+        ratingView.isActive = true
+        subview.addSubview(ratingView)
+
+        let textView = SZTextView()
+        textView.frame = CGRect(x: 0, y: 50, width: 216, height: 60)
+        textView.layer.borderWidth = 1
+        textView.layer.borderColor = Colors.textViewBorder.cgColor
+        textView.layer.cornerRadius = 5
+
+        textView.backgroundColor = Colors.textViewBackground
+        textView.placeholder = Strings.popup_rating_hint.localized
+        textView.textAlignment = .center
+        subview.addSubview(textView)
+
+        alertView.customSubview = subview
+        alertView.addButton(Strings.popup_rating_button.localized) {
+            print("test")
+        }
+
+        self.alertViewResponder = alertView.showAlert(title: Strings.popup_rating_header.localized, subTitle: Strings.popup_rating_subheader.localized)
+
         // Initialize SCLAlertView using custom Appearance
-        let alert = SCLAlertView(appearance: appearance)
-
-        // Creat the subview
-        let subview = UIView()
-
-        // Add textfield 1
-        let textfield1 = UITextField()
-        textfield1.layer.borderColor = UIColor.green.cgColor
-        textfield1.layer.borderWidth = 1.5
-        textfield1.layer.cornerRadius = 5
-        textfield1.placeholder = "Username"
-        textfield1.textAlignment = NSTextAlignment.center
-        subview.addSubview(textfield1)
-
-        // Add textfield 2
-        let textfield2 = UITextField()
-        textfield2.isSecureTextEntry = true
-        textfield2.layer.borderColor = UIColor.blue.cgColor
-        textfield2.layer.borderWidth = 1.5
-        textfield2.layer.cornerRadius = 5
-        textfield1.layer.borderColor = UIColor.blue.cgColor
-        textfield2.placeholder = "Password"
-        textfield2.textAlignment = NSTextAlignment.center
-        subview.addSubview(textfield2)
-
-        textfield1.snp.makeConstraints { maker in
-            maker.top.left.right.equalTo(subview)
-        }
-
-        textfield2.snp.makeConstraints { maker in
-            maker.top.equalTo(textfield1.snp.bottom).offset(12)
-            maker.bottom.left.right.equalTo(subview)
-        }
-
-        // Add the subview to the alert's UI property
-        alert.customSubview = subview
-        alert.addButton("Login") {
-            print("Logged in")
-        }
-
-        alert.addButton("Timeout Button", backgroundColor: UIColor.brown, textColor: UIColor.yellow) {
-            print("Timeout Button tapped")
-        }
-
-        alert.showAlert(title: "Login", subTitle: nil)
+//        let alert = SCLAlertView(appearance: appearance)
+//
+//        // Creat the subview
+//        let subview = UIView()
+//
+//        // Add textfield 1
+//        let textfield1 = UITextField()
+//        textfield1.layer.borderColor = UIColor.green.cgColor
+//        textfield1.layer.borderWidth = 1.5
+//        textfield1.layer.cornerRadius = 5
+//        textfield1.placeholder = "Username"
+//        textfield1.textAlignment = NSTextAlignment.center
+//        subview.addSubview(textfield1)
+//
+//        // Add textfield 2
+//        let textfield2 = UITextField()
+//        textfield2.isSecureTextEntry = true
+//        textfield2.layer.borderColor = UIColor.blue.cgColor
+//        textfield2.layer.borderWidth = 1.5
+//        textfield2.layer.cornerRadius = 5
+//        textfield1.layer.borderColor = UIColor.blue.cgColor
+//        textfield2.placeholder = "Password"
+//        textfield2.textAlignment = NSTextAlignment.center
+//        subview.addSubview(textfield2)
+//
+//        textfield1.snp.makeConstraints { maker in
+//            maker.top.left.right.equalTo(subview)
+//        }
+//
+//        textfield2.snp.makeConstraints { maker in
+//            maker.top.equalTo(textfield1.snp.bottom).offset(12)
+//            maker.bottom.left.right.equalTo(subview)
+//        }
+//
+//        // Add the subview to the alert's UI property
+//        alert.customSubview = subview
+//        alert.addButton("Login") {
+//            print("Logged in")
+//        }
+//
+//        alert.addButton("Timeout Button", backgroundColor: UIColor.brown, textColor: UIColor.yellow) {
+//            print("Timeout Button tapped")
+//        }
+//
+//        alert.showAlert(title: "Login", subTitle: nil)
     }
 
     @IBAction func showCustomAlert(_ sender: AnyObject) {

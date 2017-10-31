@@ -314,14 +314,15 @@ open class SCLAlertView: UIViewController, UIGestureRecognizerDelegate, UITextVi
     @objc
     open func hideView() {
 
-        self.selfReference = nil
         self.view.endEditing(true)
 
         UIView.animate(withDuration: 0.2, animations: {
             self.view.alpha = 0
         }, completion: { finished in
+
             self.dismissBlock?()
             self.view.removeFromSuperview()
+            self.selfReference = nil
         })
     }
 
