@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "70264EF61B0F588700B32B18"
-               BuildableName = "SCLAlertView.framework"
-               BlueprintName = "SCLAlertView"
-               ReferencedContainer = "container:SCLAlertView.xcodeproj">
+               BlueprintIdentifier = "CEABB2401942AD9700FCB13C"
+               BuildableName = "SCLAlertViewExample.app"
+               BlueprintName = "SCLAlertViewExample"
+               ReferencedContainer = "container:Example/SCLAlertViewExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -78,10 +78,15 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <PathRunnable
-         runnableDebuggingMode = "0"
-         FilePath = "/&lt;placeholder&gt;">
-      </PathRunnable>
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CEABB2401942AD9700FCB13C"
+            BuildableName = "SCLAlertViewExample.app"
+            BlueprintName = "SCLAlertViewExample"
+            ReferencedContainer = "container:Example/SCLAlertViewExample.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"

@@ -11,13 +11,18 @@
 		70264F141B0F58B400B32B18 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70264F131B0F58B400B32B18 /* UIKit.framework */; };
 		70264F161B0F58BE00B32B18 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70264F151B0F58BE00B32B18 /* Foundation.framework */; };
 		70264F181B0F592500B32B18 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70264F171B0F592500B32B18 /* SCLAlertView.swift */; };
-		9E124F1B1C9EA303001A4972 /* SCLAlertViewInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E124F1A1C9EA303001A4972 /* SCLAlertViewInitTests.swift */; };
-		9E124F1D1C9EA6B5001A4972 /* SCLTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E124F1C1C9EA6B5001A4972 /* SCLTextFieldTests.swift */; };
-		9E47417F1CA1DABE00F95B05 /* SCLButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E47417E1CA1DABE00F95B05 /* SCLButtonTests.swift */; };
 		9EAEFBC51CC2AA6600BA87FB /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAEFBC41CC2AA6600BA87FB /* SCLExtensions.swift */; };
-		9EE073151C9D7F4C002B43FD /* SCLAlertViewPropertiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE073131C9D7F4C002B43FD /* SCLAlertViewPropertiesTests.swift */; };
-		9EE073161C9D7F4C002B43FD /* SCLAlertViewStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE073141C9D7F4C002B43FD /* SCLAlertViewStyleTests.swift */; };
-		9EE99F911CA6B2320090F845 /* SCLPublicConstructorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE99F901CA6B2320090F845 /* SCLPublicConstructorsTest.swift */; };
+		D31C50BB87FF77E3577C3C6B /* SCLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C5C7BB0BB1B21B6FAAECC /* SCLButton.swift */; };
+		D31C52619D2890830FB25A2C /* SCLAlertViewStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C55815628C5F72CF520BA /* SCLAlertViewStyleKit.swift */; };
+		D31C52C890CE2DDDBE26FB65 /* SLCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C5236973976FED94DDFD5 /* SLCircleView.swift */; };
+		D31C5567D94D926019354D58 /* SCLAlertViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C5233098646F8B0D07FCB /* SCLAlertViewStyle.swift */; };
+		D31C5729B543A47D41200ECF /* SCLAlertViewResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C50E132FEF7C96FBE8B8C /* SCLAlertViewResponder.swift */; };
+		D31C5814D3ACAEADB9687091 /* SCLAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C513FFCC39AB3BC58433D /* SCLAppearance.swift */; };
+		D31C581819E3210427794A79 /* SCLAlertButtonLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C5881A9BED2BD17C06670 /* SCLAlertButtonLayout.swift */; };
+		D31C58B798083E98C6384922 /* SLTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C520874ABDA232B8E98CB /* SLTextView.swift */; };
+		D31C5BE58B7A0869A5B41D09 /* SCLAnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C5AC9C42C48F1DA94118C /* SCLAnimationStyle.swift */; };
+		D31C5FA85A5DA86E34F90665 /* SLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C57C4F7529866BEC96156 /* SLTextField.swift */; };
+		F045BD181FA4D3C800FD8072 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F045BD171FA4D3C800FD8072 /* SnapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,13 +43,18 @@
 		70264F131B0F58B400B32B18 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		70264F151B0F58BE00B32B18 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		70264F171B0F592500B32B18 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SCLAlertView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		9E124F1A1C9EA303001A4972 /* SCLAlertViewInitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertViewInitTests.swift; sourceTree = "<group>"; };
-		9E124F1C1C9EA6B5001A4972 /* SCLTextFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLTextFieldTests.swift; sourceTree = "<group>"; };
-		9E47417E1CA1DABE00F95B05 /* SCLButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLButtonTests.swift; sourceTree = "<group>"; };
 		9EAEFBC41CC2AA6600BA87FB /* SCLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLExtensions.swift; sourceTree = "<group>"; };
-		9EE073131C9D7F4C002B43FD /* SCLAlertViewPropertiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertViewPropertiesTests.swift; sourceTree = "<group>"; };
-		9EE073141C9D7F4C002B43FD /* SCLAlertViewStyleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertViewStyleTests.swift; sourceTree = "<group>"; };
-		9EE99F901CA6B2320090F845 /* SCLPublicConstructorsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLPublicConstructorsTest.swift; sourceTree = "<group>"; };
+		D31C50E132FEF7C96FBE8B8C /* SCLAlertViewResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertViewResponder.swift; sourceTree = "<group>"; };
+		D31C513FFCC39AB3BC58433D /* SCLAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAppearance.swift; sourceTree = "<group>"; };
+		D31C520874ABDA232B8E98CB /* SLTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLTextView.swift; sourceTree = "<group>"; };
+		D31C5233098646F8B0D07FCB /* SCLAlertViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertViewStyle.swift; sourceTree = "<group>"; };
+		D31C5236973976FED94DDFD5 /* SLCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLCircleView.swift; sourceTree = "<group>"; };
+		D31C55815628C5F72CF520BA /* SCLAlertViewStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertViewStyleKit.swift; sourceTree = "<group>"; };
+		D31C57C4F7529866BEC96156 /* SLTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLTextField.swift; sourceTree = "<group>"; };
+		D31C5881A9BED2BD17C06670 /* SCLAlertButtonLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertButtonLayout.swift; sourceTree = "<group>"; };
+		D31C5AC9C42C48F1DA94118C /* SCLAnimationStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAnimationStyle.swift; sourceTree = "<group>"; };
+		D31C5C7BB0BB1B21B6FAAECC /* SCLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLButton.swift; sourceTree = "<group>"; };
+		F045BD171FA4D3C800FD8072 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Frameworks/SnapKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F045BD181FA4D3C800FD8072 /* SnapKit.framework in Frameworks */,
 				70264F161B0F58BE00B32B18 /* Foundation.framework in Frameworks */,
 				70264F141B0F58B400B32B18 /* UIKit.framework in Frameworks */,
 			);
@@ -76,6 +87,7 @@
 				70264EF91B0F588700B32B18 /* SCLAlertView */,
 				70264F061B0F588800B32B18 /* SCLAlertViewTests */,
 				70264EF81B0F588700B32B18 /* Products */,
+				F045BD141FA4D30C00FD8072 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +106,16 @@
 				70264F171B0F592500B32B18 /* SCLAlertView.swift */,
 				9EAEFBC41CC2AA6600BA87FB /* SCLExtensions.swift */,
 				70264EFA1B0F588700B32B18 /* Supporting Files */,
+				D31C5C7BB0BB1B21B6FAAECC /* SCLButton.swift */,
+				D31C50E132FEF7C96FBE8B8C /* SCLAlertViewResponder.swift */,
+				D31C5233098646F8B0D07FCB /* SCLAlertViewStyle.swift */,
+				D31C5AC9C42C48F1DA94118C /* SCLAnimationStyle.swift */,
+				D31C5881A9BED2BD17C06670 /* SCLAlertButtonLayout.swift */,
+				D31C513FFCC39AB3BC58433D /* SCLAppearance.swift */,
+				D31C5236973976FED94DDFD5 /* SLCircleView.swift */,
+				D31C55815628C5F72CF520BA /* SCLAlertViewStyleKit.swift */,
+				D31C57C4F7529866BEC96156 /* SLTextField.swift */,
+				D31C520874ABDA232B8E98CB /* SLTextView.swift */,
 			);
 			path = SCLAlertView;
 			sourceTree = "<group>";
@@ -109,12 +131,6 @@
 		70264F061B0F588800B32B18 /* SCLAlertViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				9EE073131C9D7F4C002B43FD /* SCLAlertViewPropertiesTests.swift */,
-				9E124F1A1C9EA303001A4972 /* SCLAlertViewInitTests.swift */,
-				9EE073141C9D7F4C002B43FD /* SCLAlertViewStyleTests.swift */,
-				9E124F1C1C9EA6B5001A4972 /* SCLTextFieldTests.swift */,
-				9E47417E1CA1DABE00F95B05 /* SCLButtonTests.swift */,
-				9EE99F901CA6B2320090F845 /* SCLPublicConstructorsTest.swift */,
 				70264F071B0F588800B32B18 /* Supporting Files */,
 			);
 			path = SCLAlertViewTests;
@@ -126,6 +142,14 @@
 				70264F081B0F588800B32B18 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F045BD141FA4D30C00FD8072 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F045BD171FA4D3C800FD8072 /* SnapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +264,16 @@
 			files = (
 				9EAEFBC51CC2AA6600BA87FB /* SCLExtensions.swift in Sources */,
 				70264F181B0F592500B32B18 /* SCLAlertView.swift in Sources */,
+				D31C50BB87FF77E3577C3C6B /* SCLButton.swift in Sources */,
+				D31C5729B543A47D41200ECF /* SCLAlertViewResponder.swift in Sources */,
+				D31C5567D94D926019354D58 /* SCLAlertViewStyle.swift in Sources */,
+				D31C5BE58B7A0869A5B41D09 /* SCLAnimationStyle.swift in Sources */,
+				D31C581819E3210427794A79 /* SCLAlertButtonLayout.swift in Sources */,
+				D31C5814D3ACAEADB9687091 /* SCLAppearance.swift in Sources */,
+				D31C52C890CE2DDDBE26FB65 /* SLCircleView.swift in Sources */,
+				D31C52619D2890830FB25A2C /* SCLAlertViewStyleKit.swift in Sources */,
+				D31C5FA85A5DA86E34F90665 /* SLTextField.swift in Sources */,
+				D31C58B798083E98C6384922 /* SLTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,12 +281,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E47417F1CA1DABE00F95B05 /* SCLButtonTests.swift in Sources */,
-				9EE073151C9D7F4C002B43FD /* SCLAlertViewPropertiesTests.swift in Sources */,
-				9EE99F911CA6B2320090F845 /* SCLPublicConstructorsTest.swift in Sources */,
-				9EE073161C9D7F4C002B43FD /* SCLAlertViewStyleTests.swift in Sources */,
-				9E124F1D1C9EA6B5001A4972 /* SCLTextFieldTests.swift in Sources */,
-				9E124F1B1C9EA303001A4972 /* SCLAlertViewInitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +412,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = SCLAlertView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -405,6 +437,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = SCLAlertView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
