@@ -230,11 +230,11 @@ open class SCLAlertView: UIViewController, UIGestureRecognizerDelegate, UITextVi
         }
 
         if let subview = self.customSubview {
-            self.view.addSubview(subview)
+            self.contentView.addSubview(subview)
         }
 
         self.circleView = SLCircleView(style: appearance.style)
-        self.view.addSubview(self.circleView!)
+        self.contentView.addSubview(self.circleView!)
 
         self.configureConstraints()
         view.setNeedsLayout()
