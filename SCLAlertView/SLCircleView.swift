@@ -36,8 +36,7 @@ class SLCircleView: UIView {
         case .custom(_, let image):
             if image != nil {
                 circleBackground.backgroundColor = style.themeColor
-                circleIconView = UIImageView(image: image!.withRenderingMode(.alwaysTemplate))
-                circleIconView.tintColor = .white
+                circleIconView = UIImageView(image: image)
             } else {
                 self.isHidden = true
             }
