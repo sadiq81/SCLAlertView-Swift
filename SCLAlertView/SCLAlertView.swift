@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import SnapKit
-
 let uniqueTag: Int = Int(arc4random() % UInt32(Int32.max))
 let uniqueAccessibilityIdentifier: String = "SCLAlertView"
 
