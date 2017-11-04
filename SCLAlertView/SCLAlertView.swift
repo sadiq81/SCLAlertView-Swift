@@ -213,10 +213,15 @@ open class SCLAlertView: UIViewController, UIGestureRecognizerDelegate, UITextVi
     }
 
     @discardableResult
-    open func showAlert(title: String?, subTitle: String?, closeButtonTitle: String? = nil, animationStyle: SCLAnimationStyle = .topToBottom) -> SCLAlertViewResponder {
+    open func showAlert(title: String?, subTitle: String?, closeButtonTitle: String? = nil, animationStyle: SCLAnimationStyle = .topToBottom, inView: UIView? = nil) -> SCLAlertViewResponder {
 
-        let window = UIApplication.shared.keyWindow! as UIWindow
-        window.addSubview(view)
+        if let view = inView {
+            self.view.addSubview(view)
+        } else{
+            let window = UIApplication.shared.keyWindow! as UIWindow
+            window.addSubview(view)
+        }
+        
 
         self.titleLabel.text = title
         self.subtitleLabel.text = subTitle
@@ -337,10 +342,8 @@ open class SCLAlertView: UIViewController, UIGestureRecognizerDelegate, UITextVi
 
     fileprivate func configureConstraints() {
 
-        let window = UIApplication.shared.keyWindow!
-
         self.view.snp.makeConstraints { maker in
-            maker.edges.equalTo(window)
+            maker.edges.equalTo(self.view.superview!)
         }
 
         self.contentView.snp.makeConstraints { (maker: ConstraintMaker) in
