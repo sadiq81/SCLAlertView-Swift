@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SnapKit
+
 let uniqueTag: Int = Int(arc4random() % UInt32(Int32.max))
 let uniqueAccessibilityIdentifier: String = "SCLAlertView"
 
@@ -57,18 +58,6 @@ open class SCLAlertView: UIViewController, UIGestureRecognizerDelegate, UITextVi
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         appearance = SCLAppearance()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-
-    override open func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(SCLAlertView.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil);
-        NotificationCenter.default.addObserver(self, selector: #selector(SCLAlertView.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil);
-    }
-
-    open override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
     fileprivate func setup() {
@@ -123,9 +112,10 @@ open class SCLAlertView: UIViewController, UIGestureRecognizerDelegate, UITextVi
         self.endEditingTap!.delegate = self
         self.contentView.addGestureRecognizer(self.endEditingTap!)
 
-    }
+        NotificationCenter.default.addObserver(self, selector: #selector(self.UIKeyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
-    var activeField: UIResponder?
+    }
 
     open func addTextField(_ title: String? = nil) -> UITextField {
         let txt = SLTextField(title, appearance: self.appearance)
@@ -140,14 +130,6 @@ open class SCLAlertView: UIViewController, UIGestureRecognizerDelegate, UITextVi
         return true
     }
 
-    public func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.activeField = textField
-    }
-
-    public func textFieldDidEndEditing(_ textField: UITextField) {
-        self.activeField = textField
-    }
-
     open func addTextView() -> UITextView {
         let txt = SLTextView(appearance: self.appearance)
         txt.delegate = self
@@ -157,20 +139,11 @@ open class SCLAlertView: UIViewController, UIGestureRecognizerDelegate, UITextVi
     }
 
     public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-
         if text.rangeOfCharacter(from: CharacterSet.newlines) != nil {
             textView.resignFirstResponder()
             return false
         }
         return true
-    }
-
-    public func textViewDidBeginEditing(_ textView: UITextView) {
-        self.activeField = textView
-    }
-
-    public func textViewDidEndEditing(_ textView: UITextView) {
-        self.activeField = textView
     }
 
     @discardableResult
@@ -187,20 +160,33 @@ open class SCLAlertView: UIViewController, UIGestureRecognizerDelegate, UITextVi
         return btn
     }
 
-    @objc func keyboardWillShow(_ notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
-            }
+    //TODO handle if user choses another textfield without resigning keyboard
+    @objc func UIKeyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        guard let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else { return }
+        guard let window = UIApplication.shared.keyWindow, let textField = self.view.firstResponder as? UIView else { return }
+        guard let rect = textField.superview?.convert(textField.frame, to: window) else { return }
+        let minKeyboard = UIScreen.main.bounds.height - keyboardSize.height
+        let maxRect = rect.maxY + Appearance.edgeOffset
+        let offset = minKeyboard - maxRect
+        if offset < 0 {
+            UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions.beginFromCurrentState.union(UIViewAnimationOptions.curveEaseOut), animations: { () -> Void in
+                self.topOffset?.update(offset: offset)
+                self.view.setNeedsLayout()
+                self.view.layoutIfNeeded()
+            })
         }
     }
 
     @objc func keyboardWillHide(_ notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0 {
-                self.view.frame.origin.y += keyboardSize.height
-            }
-        }
+        guard let userInfo = notification.userInfo else { return }
+        guard let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else { return }
+        UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions.beginFromCurrentState.union(UIViewAnimationOptions.curveEaseOut), animations: { () -> Void in
+            self.topOffset?.update(offset: 0)
+            self.view.setNeedsLayout()
+            self.view.layoutIfNeeded()
+        })
     }
 
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
@@ -213,15 +199,10 @@ open class SCLAlertView: UIViewController, UIGestureRecognizerDelegate, UITextVi
     }
 
     @discardableResult
-    open func showAlert(title: String?, subTitle: String?, closeButtonTitle: String? = nil, animationStyle: SCLAnimationStyle = .topToBottom, inView: UIView? = nil) -> SCLAlertViewResponder {
+    open func showAlert(title: String?, subTitle: String?, closeButtonTitle: String? = nil, animationStyle: SCLAnimationStyle = .topToBottom) -> SCLAlertViewResponder {
 
-        if let view = inView {
-            self.view.addSubview(view)
-        } else{
-            let window = UIApplication.shared.keyWindow! as UIWindow
-            window.addSubview(view)
-        }
-        
+        let window = UIApplication.shared.keyWindow! as UIWindow
+        window.addSubview(self.view)
 
         self.titleLabel.text = title
         self.subtitleLabel.text = subTitle
@@ -239,8 +220,8 @@ open class SCLAlertView: UIViewController, UIGestureRecognizerDelegate, UITextVi
         self.contentView.addSubview(self.circleView!)
 
         self.configureConstraints()
-        view.setNeedsLayout()
-        view.layoutIfNeeded()
+        self.view.setNeedsLayout()
+        self.view.layoutIfNeeded()
 
         // Animate in the alert view
         self.showAnimation(animationStyle)
@@ -322,6 +303,9 @@ open class SCLAlertView: UIViewController, UIGestureRecognizerDelegate, UITextVi
             self.view.alpha = 0
         }, completion: { finished in
 
+            NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+            NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
             self.dismissBlock?()
             self.view.removeFromSuperview()
             self.selfReference = nil
@@ -340,10 +324,14 @@ open class SCLAlertView: UIViewController, UIGestureRecognizerDelegate, UITextVi
         return false
     }
 
+    fileprivate var topOffset: Constraint?
+
     fileprivate func configureConstraints() {
 
         self.view.snp.makeConstraints { maker in
-            maker.edges.equalTo(self.view.superview!)
+            topOffset = maker.top.equalTo(UIApplication.shared.keyWindow!).constraint
+            maker.left.right.equalTo(UIApplication.shared.keyWindow!)
+            maker.height.equalTo(UIApplication.shared.keyWindow!)
         }
 
         self.contentView.snp.makeConstraints { (maker: ConstraintMaker) in
